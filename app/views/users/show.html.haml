@@ -1,0 +1,23 @@
+- if user_signed_in?
+  .sign_in
+    ようこそ 
+    = current_user.name
+    さん！
+    %br
+    = link_to "ログアウト", destroy_user_session_path, method: :delete
+    = link_to "ペットを登録する", animals_new_path
+  .content
+    .content__1
+      .content__1__left
+      .content__1__right
+        - @animals.each do |t|
+          = t.text
+    .content__2
+      .content__2__left
+      .content__2__right
+  .sidebar
+    - @animals.each do |a|
+      .sidebar__box
+        = link_to "animals/show/#{a.id}" do
+          = image_tag "#{a.image}", class: ".sidebar__box__image"
+        = a.name
