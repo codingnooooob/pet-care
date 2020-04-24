@@ -1,0 +1,15 @@
+.header
+  .header__date
+    - today = Date.today
+    - weeks = ["月","火","水","木","金","土","日"]
+    - index = today.strftime("%u").to_i
+    = today.strftime("%y / %m / %d (#{weeks[index - 1]})")
+  .header__name
+    ようこそ 
+    = current_user.name
+    さん！
+  .header__menu
+    = link_to user_path(current_user.id), class: "header__menu__link" do
+      = icon('fas', 'home', class: 'header__menu__icon_home')
+    = link_to destroy_user_session_path, class: "header__menu__link", method: :delete do
+      = icon('fas', 'sign-out-alt', class: 'header__menu__icon_exit')

@@ -1,0 +1,21 @@
+= link_to new_user_animal_path do
+  .newbtn
+    = icon('fas','plus', class: "newbtn__icon")
+.sidebar
+  - @animals.each do |a|
+    .sidebar__box
+      = link_to user_animal_path(a.id) do
+        - if a.image.present?
+          = image_tag "#{a.image}", class: "sidebar__box__image"
+        - else
+          .sidebar__box__default
+            = icon('fas','paw', class: "sidebar__box__default__icon")
+      - if a.doing.present? && a.doing > 0
+        .sidebar__box__doing
+          = a.doing
+      - if a.name.present?
+        .sidebar__box__name
+          = a.name
+      - else
+        .sidebar__box__name
+          = "No.#{a.id}"

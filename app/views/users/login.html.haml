@@ -1,5 +1,7 @@
 .top
-  .top__box
-    = link_to "ログイン", new_user_session_path, class: 'top__box__btn' 
-    .top__box__space
-    = link_to "新規登録", new_user_registration_path, class: 'top__box__btn'
+  .top__left
+  .top__right
+    .top__right__login
+    = link_to "ログイン", new_user_session_path, class: 'content__right__login__btn' 
+    .top__right__signin
+    = link_to "新規登録", new_user_registration_path, class: 'content__right__signin__btn'

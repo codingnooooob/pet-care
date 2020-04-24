@@ -58,3 +58,9 @@ gem 'devise'
 gem 'erb2haml'
 gem 'font-awesome-sass'
 gem 'carrierwave'
+gem 'fullcalendar-rails' 
+gem 'momentjs-rails'
+gem 'pry-rails'
+gem 'pry-doc'    # methodを表示
+gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
+gem 'pry-stack_explorer'
