@@ -1,0 +1,29 @@
+// .field {
+//   width: 200px;
+//   height: 30px;
+// }
+
+// .action {
+//   width: 200px;
+//   height: 30px;
+// }
+
+.content {
+  width: 100vw;
+  height: 100vh;
+  background-color: #EEEEEE;
+  padding: calc((100vh - 20em) / 2) calc((100vw - 20em) / 2);
+
+  &__box {
+    width: 20em;
+    height: 20em;
+    background-color: cyan;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+  }
+}

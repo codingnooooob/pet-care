@@ -1,0 +1,47 @@
+.header {
+  width: 100vw;
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  line-height: 50px;
+  z-index: 9999;
+  background-color: #4689FF;
+  color: #EEEEEE;
+
+  &__date {
+    margin: 0 10px 0 0;
+    font-size: 13px;
+  }
+
+  &__name {
+    font-size: 11px;
+  }
+
+  &__menu {
+
+    &__link {
+      text-decoration: none;
+      color: #EEEEEE;
+    }
+
+    &__icon_exit {
+      font-size: 25px;
+      line-height: 50px;
+      margin: 0 15px 0 0;
+    }
+
+    &__icon_exit:hover {
+      opacity: 0.75;
+    }
+
+    &__icon_home {
+      font-size: 25px;
+      line-height: 50px;
+      margin: 0 10px;
+    }
+
+    &__icon_home:hover {
+      opacity: 0.75;
+    }
+  }
+}

@@ -1,0 +1,65 @@
+- if user_signed_in?
+  = render("layouts/header")
+  .content
+    .content__left
+      .content__left__top
+        = image_tag "#{@animal.image}", class: "content__left__top__image"
+        .content__left__top__info
+          = @animal.name
+      .content__left__top__edit
+      .content__left__bottom
+        .content__left__bottom__text
+          = @animal.text
+          .error
+            - @task.errors.full_messages.each do |message|
+              = message
+    .content__right
+      .content__right__top
+        .content__right__top__icon
+          状態
+        .content__right__top__title
+          やること
+        .content__right__top__item
+          間隔
+        .content__right__top__item
+          次回予定日
+        .content__right__top__icon
+          削除
+      .content__right__tasks
+        - @tasks.each do |s|
+          .content__right__tasks__box
+            - case s.status
+            - when 0
+              .content__right__tasks__box__icon
+                = link_to icon('fas','exclamation-circle', class: "content__right__tasks__box__icon__task_doing"), {controller: "tasks", action: "status", id: s.id }, method: :post
+            - when 1
+              .content__right__tasks__box__icon
+                = icon('fas','pause-circle', class: "content__right__tasks__box__icon__task_wait")
+            - when 2
+              .content__right__tasks__box__icon
+                = link_to icon('fas','check-circle', class: "content__right__tasks__box__icon__task_done"), {controller: "tasks", action: "status", id: s.id }, method: :post
+            .content__right__tasks__box__title
+              = s.title
+            .content__right__tasks__box__item
+              = s.interval
+              日ごと
+            .content__right__tasks__box__item
+              - weeks = ["月","火","水","木","金","土","日"]
+              - index = s.next.strftime("%u").to_i
+              = s.next.strftime("%m / %d (#{weeks[index - 1]})")
+            .content__right__tasks__box__icon
+              = link_to user_animal_task_path(s.animal_id, s.id), class: "content__right__tasks__box__icon__trash_link", method: :delete do
+                = icon('fas','trash-alt', class: "content__right__tasks__box__icon__task_trash")
+            %br
+      .content__right__form
+        = form_for @task, url: user_animal_tasks_path(params[:id]), method: :post do |f|
+          やること:
+          = f.text_field :title, size: "30", placeholder: "(例)ごはんをあげる", class: "content__right__form__input"
+          %br
+          日にち　:
+          = f.text_field :date, class: "content__right__form__input"
+          から
+          = f.text_field :interval, size: "5", class: "content__right__form__input"
+          日ごと
+          = f.submit "登録", class: "content__right__form__submit"
+    = render("layouts/sidebar")

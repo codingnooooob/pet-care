@@ -1,5 +1,11 @@
-= form_for @animal, url: animals_create_path, method: "post" do |f|
+= form_for @animal, url: user_animals_path, method: "post" do |f|
+  名前:
   = f.text_field :name
+  %br
+  写真:
   = f.file_field :image
+  %br
+  メモ:
   = f.text_field :text
+  %br
   = f.submit "登録する"
