@@ -1,34 +1,33 @@
-- if user_signed_in?
-  .sign_in
-    ようこそ 
-    = current_user.name
-    さん！
-    %br
-    = link_to "ログアウト", destroy_user_session_path, method: :delete
-    = link_to "ペットを登録する", new_user_animal_path
-  .content
-    .content__1
-      .content__1__left
-      .content__1__right
-        - @animals.each do |t|
-          = t.text
-    .content__2
-      .content__2__left
-        = form_for @task, :url => { :controller => :tasks, :action => :new }, method: "post" do |f|
-          = f.text_field :title
-          = f.text_field :text
-          = f.submit "登録する"
-        - @tasks.each do |s|
-          .content__2__left__task
-            = s.title
-            = s.text
-            = link_to "削除", { controller: "tasks", action: "destroy", id: s.id }, method: :delete
-            = link_to "未完了", {controller: "tasks", action: "status", id: s.id }, method: "post"
-      .content__2__right
-  .sidebar
-    - @animals.each do |a|
-      .sidebar__box
-        = link_to "animals/show/#{a.id}" do
-          = image_tag "#{a.image}", class: ".sidebar__box__image"
-        = a.name
-  .menu
+.sign_in
+  ようこそ 
+  = current_user.name
+  さん！
+  %br
+  = link_to "ログアウト", destroy_user_session_path, method: :delete
+  = link_to "ペットを登録する", new_user_animal_path
+.content
+  .content__1
+    .content__1__left
+    .content__1__right
+      - @animals.each do |t|
+        = t.text
+  .content__2
+    .content__2__left
+      = form_for @task, :url => { :controller => :tasks, :action => :new }, method: "post" do |f|
+        = f.text_field :title
+        = f.text_field :text
+        = f.submit "登録する"
+      - @tasks.each do |s|
+        .content__2__left__task
+          = s.title
+          = s.text
+          = link_to "削除", { controller: "tasks", action: "destroy", id: s.id }, method: :delete
+          = link_to "未完了", {controller: "tasks", action: "status", id: s.id }, method: "post"
+    .content__2__right
+.sidebar
+  - @animals.each do |a|
+    .sidebar__box
+      = link_to "animals/show/#{a.id}" do
+        = image_tag "#{a.image}", class: ".sidebar__box__image"
+      = a.name
+.menu

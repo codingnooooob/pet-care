@@ -20,10 +20,11 @@
 
 .newbtn:hover {
   opacity: 0.5;
+  box-shadow: 1px 1px 10px 1px #555555;
 }
 
 .sidebar {
-  height: calc(100vh - 50px);
+  height: calc(100vh - 100px);
   width: 150px;
   position: fixed;
   right: 0;
@@ -32,11 +33,11 @@
   background-color: #B0C4DE;
   opacity: 0.75;
   overflow: scroll;
-  padding: 140px 0 0;
+  padding: 138.5px 0 0;
 
   &__box {
-    height: 25%;
-    width: 80%;
+    height: 148.5px;
+    width: 120px;
     position: relative;
 
     &__doing {
@@ -49,7 +50,7 @@
       background-color: red;
       border-radius: 50%;
       position: absolute;
-      bottom: 25px;
+      bottom: 40px;
       right: 15px;
     }
 
@@ -58,14 +59,19 @@
       height: 100px;
       width: 100px;
       border-radius: 50%;
-      margin: 0 10px;
+      margin: 10px 10px 0;
+    }
+
+    &__image:hover {
+      opacity: 0.5;
+      box-shadow: 1px 1px 10px 1px #555555;
     }
 
     &__default {
       height: 100px;
       width: 100px;
       border-radius: 50%;
-      margin: 0 10px;
+      margin: 10px 10px 0;
       background-color: #666666;
       color: #DDDDDD;
       font-size: 50px;
@@ -77,6 +83,11 @@
       }
     }
 
+    &__default:hover {
+      opacity: 0.5;
+      box-shadow: 1px 1px 10px 1px #555555;
+    }
+
     &__name {
       margin: 0 0 10px 10px;
       text-overflow: ellipsis;
@@ -86,6 +97,6 @@
   }
 
   &__box:hover {
-    opacity: 0.5;
+    
   }
 }

@@ -1,27 +1,30 @@
-.content
-  ログイン
+.signup
+  .signup__title
+    signup
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = render "devise/shared/error_messages", resource: resource
-    .content__box
-      .content__box__field
+    .signup__box
+      .signup__box__field
         = f.label :email
         %br/
-        = f.email_field :email, autofocus: true, autocomplete: "email"
-      .content__box__field
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "input_field"
+      .signup__box__field
         = f.label :name
         %br
-        = f.text_field :name
-      .content__box__field
+        = f.text_field :name, class: "input_field"
+      .signup__box__field
         = f.label :password
         - if @minimum_password_length
           %em
-            (#{@minimum_password_length} characters minimum)
+            (#{@minimum_password_length}文字以上)
         %br/
-        = f.password_field :password, autocomplete: "new-password"
-      .content__box__field
-        = f.label :password_confirmation
+        = f.password_field :password, autocomplete: "new-password", class: "input_field"
+      .signup__box__field
+        = f.label :password_confirmation, class: "label"
         %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password"
-      .content__box__actions
-        = f.submit "登録する"
+        = f.password_field :password_confirmation, autocomplete: "new-password", class: "input_field"
+      .signup__box__actions
+        = f.button :type => "submit", class: "signup__box__actions__submit" do
+          = icon('fas','user-plus')
+          signup
       = render "devise/shared/links"

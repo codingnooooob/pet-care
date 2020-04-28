@@ -1,0 +1,59 @@
+.login_link {
+  text-decoration: none;
+
+  &__btn {
+    width: 171px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin: 15px 0 0;
+    background-color: #B1F9D0;
+    text-align: center;
+    line-height: 40px;
+    color: #333333;
+  }
+
+  &__btn:hover {
+    opacity: 0.75;
+    box-shadow: 1px 1px 10px 1px #555555;
+  }
+}
+
+
+.signup_link {
+  text-decoration: none;
+
+  &__btn {
+    width: 171px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin: 15px 0 0;
+    background-color: #FFCC33;
+    text-align: center;
+    line-height: 40px;
+    color: #EEEEEE;
+  }
+
+  &__btn:hover {
+    opacity: 0.75;
+    box-shadow: 1px 1px 10px 1px #555555;
+  }
+}
+
+.links {
+  font-size: 13px;
+  margin: 10px 0 0;
+  text-decoration: none;
+  color: #EEEEEE;
+}
+
+.links:hover {
+  opacity: 0.5;
+}
+
+.label {
+  font-size: 12px;
+}
