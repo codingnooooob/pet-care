@@ -3,7 +3,7 @@ class Task < ApplicationRecord
   validates :title, presence: true
   validates :date, presence: true,
   format: {with: /\A\d{4}-\d{2}-\d{2}\z/}
-  validate :date_validate
+  validate :date_validate, on: :create
   validates :interval, presence: true,
   numericality: { only_integer: true, greater_than: 0, less_than: 365},
   format: {with: /\A[0-9]+\z/}

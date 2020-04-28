@@ -1,16 +1,58 @@
-- if user_signed_in?
-  = render("layouts/header")
-  - @animals.each do |a|
-    - if a.doing.present? && a.doing > 0
-      = link_to user_animal_path(a.id) do
-        .doing
-          - if a.image.present?
-            = image_tag "#{a.image}", class: "sidebar__box__image"
-          - else
-            .sidebar__box__default
-              = icon('fas','paw', class: "sidebar__box__default__icon")
-          - if a.name.present?
-            = a.name
-          - else
-            = "No.#{a.id}"
+.user_home
+  .user_home__box
+    .user_home__box__plans
+      .user_home__box__plans__title
+        今日の予定
+        - if @doing.present? && @doing > 0
+          = "#{@doing}件"
+        - else
+          なし
+      .user_home__box__plans__content
+        - @animals.each do |a|
+          - if a.doing.present? && a.doing > 0
+            .user_home__box__plans__content__active
+              = link_to user_animal_path(a.id), class: "user_home__box__plans__content__active__link" do
+                - if a.image.present?
+                  = image_tag "#{a.image}", class: "user_home__box__plans__content__active__link__image"
+                  .user_home__box__plans__content__active__link__num
+                    = a.doing
+                - else
+                  .user_home__box__plans__content__active__link__default
+                  .user_home__box__plans__content__active__link__num
+                    = a.tomorrow
+                    = icon('fas','paw', class: "user_home__box__plans__content__active__link__default__icon")
+                - if a.name.present?
+                  .user_home__box__plans__content__active__link__name
+                    = a.name
+                - else
+                  .user_home__box__plans__content__active__link__name
+                    no name
+  .user_home__box
+    .user_home__box__plans
+      .user_home__box__plans__title
+        明日の予定
+        - if @tomorrow.present? && @tomorrow > 0
+          = "#{@tomorrow}件"
+        - else
+          なし
+      .user_home__box__plans__content
+        - @animals.each do |a|
+          - if a.tomorrow.present? && a.tomorrow > 0
+            .user_home__box__plans__content__active
+              = link_to user_animal_path(a.id), class: "user_home__box__plans__content__active__link" do
+                - if a.image.present?
+                  = image_tag "#{a.image}", class: "user_home__box__plans__content__active__link__image"
+                  .user_home__box__plans__content__active__link__num.tomorrow
+                    = a.tomorrow
+                - else
+                  .user_home__box__plans__content__active__link__default
+                    = icon('fas','paw', class: "user_home__box__plans__content__active__link__default__icon")
+                  .user_home__box__plans__content__active__link__num.tomorrow
+                    = a.tomorrow
+                - if a.name.present?
+                  .user_home__box__plans__content__active__link__name
+                    = a.name
+                - else
+                  .user_home__box__plans__content__active__link__name
+                    no name
   = render("layouts/sidebar")

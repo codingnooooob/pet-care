@@ -1,13 +1,22 @@
 * {
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-family: 'Arial Rounded MT Bold','Franklin Gothic Medium', "筑紫A丸ゴシック"; font-weight: bold;
   box-sizing: border-box;
 }
 
 @import "./reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "./top";
 @import "./login";
-@import "./show";
+@import "./users_show";
+@import "./animals_show";
 @import "./header";
+@import "./footer";
 @import "./sidebar";
 @import "./signup";
+@import "./error_messages";
+@import "./forgot_password";
+@import "./link";
+@import "./animals_new";
+@import "./input_field";
+@import "./edit_text";

@@ -1,0 +1,14 @@
+.top
+  .top__left
+  .top__right
+    .top__right__title
+      pet care
+    .top__right__box
+      = link_to new_user_session_path, class: 'top__right__box__link' do
+        .top__right__box__btn
+          = icon('fas','sign-in-alt')
+          login
+      = link_to new_user_registration_path, class: 'top__right__box__link' do
+        .top__right__box__btn.signup_top
+          = icon('fas','user-plus')
+          signup

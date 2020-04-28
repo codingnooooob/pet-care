@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        email: Email
+        password: Password
+        password_confirmation: 確認用password
+        remember_me: 記憶させる

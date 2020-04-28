@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "users#login"
+  root "users#top"
   post "tasks/status/:id" => "tasks#status"
   resources :users
   resources :animals

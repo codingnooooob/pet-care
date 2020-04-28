@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def create
-    @task = Task.new(title: params[:task][:title], date: params[:task][:date], interval: params[:task][:interval],text: params[:task][:text], animal_id: params[:animal_id], status: "1", active: "0", lock: "0")
+    @task = Task.new(title: params[:task][:title], date: params[:task][:date], interval: params[:task][:interval],text: params[:task][:text], animal_id: params[:animal_id], status: "2", active: "0", lock: "0")
     @task.save
     redirect_to user_animal_path(params[:animal_id])
     # else
@@ -23,10 +23,10 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     case @task.status
     when 0
-      status = 2
+      status = 1
       lock = 1
       active = 0
-    when 2
+    when 1
       status = 0
       lock = 0
       active = 1

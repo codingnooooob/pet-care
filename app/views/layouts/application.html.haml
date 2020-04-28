@@ -8,4 +8,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     - require "date"
+    - if user_signed_in?
+      = render("layouts/header")
     = yield
+    = render("layouts/footer")

@@ -1,11 +1,17 @@
-= form_for @animal, url: user_animals_path, method: "post" do |f|
-  名前:
-  = f.text_field :name
-  %br
-  写真:
-  = f.file_field :image
-  %br
-  メモ:
-  = f.text_field :text
-  %br
-  = f.submit "登録する"
+.animals_new
+  .animals_new__title
+    ペットを登録
+  = form_for @animal, url: user_animals_path, method: "post" do |f|
+    .animals_new__box
+      .animals_new__box__field
+        Name
+        %br
+        = f.text_field :name, class: 'animals_new__box__field__input input_field'
+        .animals_new__box__field__image
+          %label{:for => "image"}
+            = icon('fas','image', class: "animals_new__box__field__image__icon")
+          = f.file_field :image, class: "animals_new__box__field__image__input", id: "image"
+      .animals_new__box__add
+        = f.button :type => "submit", class: "animals_new__box__add__submit" do
+          = icon('fas','dog')
+          add

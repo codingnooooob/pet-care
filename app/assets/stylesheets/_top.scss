@@ -1,0 +1,61 @@
+.top {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+
+  &__left {
+    width: 80%;
+    height: 100%;
+    background-image: url("/images/hedgehog.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__right {
+    background-color: #F5F5F5;
+
+    &__title {
+      font-size: 80px;
+      position: fixed;
+      top: 30px;
+      right: 100px;
+    }
+
+    &__box {
+      width: 20em;
+      height: 20em;
+      border-radius: 50%;
+      background-color: #66CCCC;
+      position: fixed;
+      bottom: 100px;
+      right: 50px;
+      padding: 100px 80px;
+      
+      &__link {
+        text-decoration: none;
+      }
+
+      &__btn {
+        width: 10em;
+        height: 40px;
+        border-radius: 5px;
+        line-height: 40px;
+        text-align: center;
+        background-color: #B1F9D0;
+        font-family: 'Arial Rounded MT Bold', 'Franklin Gothic Medium';
+        color: #333333;
+      }
+
+      &__btn:hover {
+        opacity: 0.75;
+        box-shadow: 1px 1px 10px 1px #555555;
+      }
+
+      .signup_top {
+        color: #EEEEEE;
+        background-color: #FFCC33;
+        margin: 40px 0 0 0;
+      }
+    }
+  }
+}

@@ -14,10 +14,6 @@ class AnimalsController < ApplicationController
     @animals = Animal.where(user_id: current_user.id)
     @task = Task.new
     @tasks = Task.where(animal_id: params[:id]).order(status: "ASC")
-    doing = @tasks.where(status: 0).count
-
-    @animal.doing = doing
-    @animal.save
     
     @tasks.each do |s|
       
@@ -39,10 +35,28 @@ class AnimalsController < ApplicationController
         s.status = 0
       elsif days.exclude?(Date.today) && s.lock == 1 && s.active == 0
         s.lock = 0
-        s.status = 1
+        s.status = 2
       end
       s.save
     end
+
+    @tasks = Task.where(animal_id: params[:id]).order(status: "ASC")
+    doing = @tasks.where(status: 0).count
+    @animal.doing = doing
+    @animal.save
+  end
+
+  def edit
+    @animal = Animal.find(params[:id])
+  end
+
+  def update
+    @animal = Animal.find(params[:id])
+    @animal.name = params[:animal][:name]
+    @animal.image = params[:animal][:image]
+    @animal.text = params[:animal][:text]
+    @animal.save
+    redirect_to animal_path(params[:id])
   end
   # private
   

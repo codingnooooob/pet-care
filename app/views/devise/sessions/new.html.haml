@@ -1,19 +1,22 @@
-.content
-  アカウント作成
+.login
+  .login__title
+    login
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .content__box
-      .content__box__field
+    .login__box
+      .login__box__field
         = f.label :email
         %br/
-        = f.email_field :email, autofocus: true, autocomplete: "email"
-      .content__box__field
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "input_field"
+      .login__box__field
         = f.label :password
         %br/
-        = f.password_field :password, autocomplete: "current-password"
+        = f.password_field :password, autocomplete: "current-password", class: "input_field"
       - if devise_mapping.rememberable?
-        .content__box__field
+        .login__box__remember
           = f.check_box :remember_me
           = f.label :remember_me
-      .content__box__actions
-        = f.submit "Log in"
-        = render "devise/shared/links"
+      .login__box__actions
+        = f.button :type => "submit", class: "login__box__actions__submit" do
+          = icon('fas','sign-in-alt')
+          login
+      = render "devise/shared/links"
