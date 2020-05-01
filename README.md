@@ -65,8 +65,11 @@
 |------|----|-------|
 |id|integer|null: false|
 |name|string||
-|comment|text||
 |image|string||
+|text|text||
+|user_id|integer||
+|doing|integer||
+|tomorrow|integer||
 
 ### Association
 - has_many :tasks
@@ -77,7 +80,15 @@
 |Column|Type|Options|
 |------|----|-------|
 |id|integer|null: false|
-|comment|text|null: false|
+|text|text|null: false|
+|title|string||
+|animal_id|integer||
+|status|integer||
+|date|date||
+|interval|integer||
+|active|integer||
+|lock|integer||
+|next|date||
 
 ### Association
 - belongs_to :animal
